@@ -13,13 +13,11 @@ class Account extends Model
 
     public function transaction()
     {
-        return $this->hasMany(User::class, 'account_id', 'id')->withDefault([
-        ]);
+        return $this->hasMany(Transaction::class, 'account_id', 'id')->withDefault([]);
     }
     public function user()
     {
-        return $this->belongsTo(User::class, 'user_id', 'id')->withDefault([
-        ]);
+        return $this->belongsTo(User::class, 'user_id', 'id')->withDefault([]);
     }
 
 
