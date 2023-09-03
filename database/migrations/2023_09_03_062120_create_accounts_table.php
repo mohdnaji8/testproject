@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('number');
             $table->string('currency');
             $table->decimal('balance',9,3);
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }

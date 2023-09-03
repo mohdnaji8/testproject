@@ -16,6 +16,7 @@ return new class extends Migration
             $table->unsignedBigInteger('account_id');
             $table->enum('type', ['debit', 'credit']);
             $table->decimal('amount',9,3);
+            $table->foreign('account_id')->references('id')->on('accounts')->onDelete('cascade');
             $table->timestamps();
         });
     }
