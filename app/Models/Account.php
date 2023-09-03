@@ -10,4 +10,17 @@ class Account extends Model
     use HasFactory;
 
     protected $fillable = ['user_id','number','currency','balance'];
+
+    public function transaction()
+    {
+        return $this->hasMany(User::class, 'account_id', 'id')->withDefault([
+        ]);
+    }
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'user_id', 'id')->withDefault([
+        ]);
+    }
+
+
 }
